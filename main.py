@@ -7,16 +7,13 @@ pygame.init()
 
 WIDTH, HEIGHT = 600, 500
 FPS = 60
-
 GRAVITY = 0.5
 JUMP_SPEED = -10
 MOVE_SPEED = 5
 Damping = 0.9
-
 PLATFORM_WIDTH = 80
 PLATFORM_HEIGHT = 15
 PLATFORM_GAP = 70
-
 GUN_LENGTH = 34
 GUN_WIDTH = 10
 KNOCKBACK_STRENGTH = 14
@@ -35,7 +32,6 @@ def load_image(filename, size):
 player_image = load_image("player.png", (50, 50))
 cupcake_image = load_image("cupcake.png", (30, 30))
 gun_image = load_image("gun.png", (GUN_LENGTH, GUN_WIDTH))
-
 
 class Player:
     def __init__(self, x, y):
@@ -295,7 +291,6 @@ async def main():
                     cupcake.y - camera_offset
                 )
             )
-
         if not game_over:
             player.draw(
                 screen,
@@ -306,7 +301,6 @@ async def main():
                 None,
                 28
             )
-
             screen.blit(
                 font.render(
                     f"Shots: {player.ammo}",
@@ -315,7 +309,6 @@ async def main():
                 ),
                 (10, 10)
             )
-
             screen.blit(
                 font.render(
                     "Reach 67 cupcakes to win",
@@ -324,19 +317,16 @@ async def main():
                 ),
                 (10, 40)
             )
-
         else:
             font = pygame.font.SysFont(
                 None,
                 48
             )
-
             text = font.render(
                 "Game Over — click to restart",
                 True,
                 (255, 255, 255)
             )
-
             screen.blit(
                 text,
                 (
@@ -344,19 +334,16 @@ async def main():
                     HEIGHT // 2 - 20
                 )
             )
-
         if not game_over and score >= 67:
             font = pygame.font.SysFont(
                 None,
                 48
             )
-
             text = font.render(
                 "You Win!",
                 True,
                 (255, 255, 255)
             )
-
             screen.blit(
                 text,
                 (
@@ -364,7 +351,6 @@ async def main():
                     HEIGHT // 2 - 20
                 )
             )
-
         pygame.display.flip()
 
         clock.tick(FPS)
